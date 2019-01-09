@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM alpine:latest
 LABEL maintainer="jeffspahr"
 RUN mkdir /opt/logger \
   && chgrp -R 0 /opt/logger \
