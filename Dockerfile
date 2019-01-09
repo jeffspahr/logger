@@ -5,4 +5,4 @@ RUN mkdir /opt/logger \
   && chmod -R g+rwX /opt/logger
 WORKDIR /opt/logger
 ADD . /opt/logger
-CMD ["/opt/bstore/logger"]
+CMD ["/opt/logger/logger"]
