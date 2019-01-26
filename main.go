@@ -15,9 +15,8 @@ func initFlags() {
 	jsonFormat := logrus.JSONFormatter{
 		FieldMap: logrus.FieldMap{
 			logrus.FieldKeyTime:  "@timestamp",
-			logrus.FieldKeyLevel: "@level",
-			logrus.FieldKeyMsg:   "@message",
-			logrus.FieldKeyFunc:  "@caller",
+			logrus.FieldKeyLevel: "log.level",
+			logrus.FieldKeyMsg:   "message",
 		},
 	}
 
