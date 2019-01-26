@@ -1,8 +1,11 @@
 package main
 
-import "time"
-import logrus "github.com/sirupsen/logrus"
-import "flag"
+import (
+	"flag"
+	"time"
+
+	logrus "github.com/sirupsen/logrus"
+)
 
 func initFlags() {
 	profile := flag.String("profile", "test", "Environment profile")
@@ -31,6 +34,15 @@ func main() {
 	initFlags()
 	for {
 		logrus.Infof("I love logs")
+
+		if time.Now().Second()%5 == 0 {
+			logrus.Error("Five seconds")
+		}
+
+		if time.Now().Second()%60 == 0 {
+			logrus.Warn("1 minute (╯°□°）╯︵ ┻━┻")
+		}
+
 		time.Sleep(1 * time.Second)
 	}
 }
