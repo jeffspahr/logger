@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"runtime"
 	"time"
 
 	logrus "github.com/sirupsen/logrus"
@@ -36,13 +37,15 @@ func main() {
 		logrus.Infof("I love logs")
 
 		if time.Now().Second()%5 == 0 {
-			logrus.Error("Five seconds")
+			logrus.WithFields(logrus.Fields{
+				"NumCPUs":   runtime.NumCPU(),
+				"GoVersion": runtime.Version(),
+			}).Info("5 second stats")
 		}
 
 		if time.Now().Second()%60 == 0 {
 			logrus.Warn("1 minute (╯°□°）╯︵ ┻━┻")
 		}
-
 		time.Sleep(1 * time.Second)
 	}
 }
